@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Lover</title>
+    <link rel="stylesheet" href="css.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">🎵 Music Lover</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#share">Share Music</a></li>
+            <li><a href="#news">Music News</a></li>
+            <li><a href="#playlist">Playlist</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Home Section -->
+        <section id="home" class="section">
+            <h1>Welcome to Music Lover</h1>
+            <p>Your go-to place to share and discover music.</p>
+            <img src="image/background.jpg" alt="Music Background" class="banner-image">
+        </section>
+
+        <!-- Share Music Section -->
+        <section id="share" class="section">
+            <h2>Share Your Favorite Music</h2>
+            <form id="share-form">
+                <label for="song-name">Song Name:</label>
+                <input type="text" id="song-name" name="song-name" required>
+                
+                <label for="artist">Artist:</label>
+                <input type="text" id="artist" name="artist" required>
+                
+                <button type="submit">Share</button>
+            </form>
+            <div id="shared-music">
+                <h3>Shared Music:</h3>
+                <ul id="music-list"></ul>
+            </div>
+        </section>
+
+        <!-- Music News Section -->
+        <section id="news" class="section">
+            <h2>Latest Music News</h2>
+            <div id="news-container">
+                <!-- News articles will be dynamically added here -->
+            </div>
+        </section>
+
+        <!-- Playlist Section -->
+        <section id="playlist" class="section">
+            <h2>Playlists</h2>
+            <div id="playlist-container">
+                <div class="playlist-item">
+                    <a href="https://open.spotify.com/playlist/69wfpaElfwLauzJDrvpaUy?si=74d7765dd14d4df1" target="_blank">
+                        <img src="image/musicon.jpeg" alt="Alfath's Playlist" class="playlist-cover">
+                        <p>Alfath's Playlist</p>
+                    </a>
+                </div>
+                <div class="playlist-item">
+                    <a href="https://open.spotify.com/playlist/1XNFLDw4WOuLmcoiwdpjsB?si=35397683986b4407" target="_blank">
+                        <img src="image/listen.jpeg" alt="Sad Song" class="playlist-cover">
+                        <p>Sad Song</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2024 Music Lover. All rights reserved.</p>
+    </footer>
+
+    <!-- Script -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Share Music Functionality
+            const shareForm = document.getElementById("share-form");
+            const musicList = document.getElementById("music-list");
+
+            shareForm.addEventListener("submit", (event) => {
+                event.preventDefault(); // Prevent form submission
+                const songName = document.getElementById("song-name").value;
+                const artist = document.getElementById("artist").value;
+
+                // Validate input
+                if (songName && artist) {
+                    // Create new list item
+                    const li = document.createElement("li");
+                    li.textContent = `${songName} by ${artist}`;
+
+                    // Add delete button
+                    const deleteButton = document.createElement("button");
+                    deleteButton.textContent = "Delete";
+                    deleteButton.classList.add("delete-btn");
+
+                    // Add delete functionality
+                    deleteButton.addEventListener("click", () => {
+                        musicList.removeChild(li);
+                    });
+
+                    // Append delete button and list item
+                    li.appendChild(deleteButton);
+                    musicList.appendChild(li);
+
+                    // Clear form
+                    shareForm.reset();
+                } else {
+                    alert("Please enter both song name and artist.");
+                }
+            });
+
+            // Dynamically add music news
+            const newsContainer = document.getElementById("news-container");
+
+            if (newsContainer) {
+                const newsArticles = [
+    { 
+        title: "New Album by Bernadya", 
+        content: "Explore the latest album by Bernadya.", 
+        image: "image/berber.jpeg",
+        link: "https://open.spotify.com/album/5agEAxt8vks5Xk0NfEbI5D?si=xwezPvoXSIaFwKxn8EAZgQ" // Tautan ke album
+    },
+    { 
+        title: "Concert Tour 2024 Announced", 
+        content: "Check out the tour dates for 2024.", 
+        image: "image/konser.jpg",
+        link: "https://www.ticketmaster.com/" // Tautan ke situs pembelian tiket
+    },
+];
+
+
+                newsArticles.forEach((news) => {
+                    const article = document.createElement("article");
+                    article.innerHTML = `
+                         <a href="${news.link}" target="_blank">
+            <img src="${news.image}" alt="${news.title}" class="news-image">
+        </a>
+        <h3>${news.title}</h3>
+        <p>${news.content}</p>`;
+    newsContainer.appendChild(article);
+
+        });
+    }
+})
+    </script>
+</body>
+</html>

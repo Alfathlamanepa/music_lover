@@ -1,0 +1,161 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+h1, h2 {
+    color: #444;
+}
+
+/* Styling untuk Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333; /* Warna latar belakang navbar */
+    padding: 10px 20px;
+}
+
+/* Styling untuk logo */
+.logo {
+    font-size: 24px;
+    color: white; /* Mengubah warna logo menjadi putih */
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+}
+
+/* Styling untuk menu links */
+.nav-links {
+    list-style-type: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white; /* Warna teks menu */
+    font-size: 16px;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+
+/* Sections */
+.section {
+    padding: 2rem 1rem;
+    text-align: center;
+}
+
+.banner-image {
+    width: 100%;
+    max-width: 600px;
+    border-radius: 10px;
+    margin-top: 1rem;
+}
+
+/* Share Music Form */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+input, button {
+    padding: 0.5rem;
+    font-size: 1rem;
+}
+
+button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #ff5722;
+}
+
+/* Footer */
+.footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: 2rem;
+}
+.news-image {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+/* Styling untuk playlist container (menggunakan space-between untuk jarak antar item) */
+#playlist-container {
+    width: 100%;         /* Membuat container mengambil seluruh lebar */
+    max-width: 1200px;   /* Membatasi lebar maksimal untuk memastikan layout tetap rapi */
+    margin: 0 auto;      /* Membuat kontainer terpusat secara horizontal */
+}
+
+
+/* Styling untuk setiap playlist item */
+.playlist-item {
+    display: flex;            /* Gunakan flexbox untuk menyusun gambar dan teks secara vertikal */
+    flex-direction: column;   /* Gambar di atas teks */
+    align-items: center;      /* Menyelaraskan gambar dan teks di tengah */
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+/* Gaya saat hover pada playlist item */
+.playlist-item:hover {
+    transform: scale(1.05);   /* Efek pembesaran saat hover */
+}
+
+/* Gambar cover playlist */
+.playlist-cover {
+    width: 150px;  /* Ukuran gambar lebih kecil agar pas dalam layout */
+    height: 150px; /* Menjaga aspek rasio gambar */
+    border-radius: 10px;  /* Membuat sudut gambar lebih halus */
+    margin-bottom: 10px;  /* Memberikan jarak antara gambar dan teks */
+}
+
+/* Gaya teks untuk nama playlist */
+.playlist-item p {
+    font-size: 18px;
+    color:  #333; /* Menjaga teks tetap putih */
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+
+/* Styling untuk tombol hapus */
+.delete-btn {
+    background-color:#333;
+    color: rgb(247, 242, 242);
+    border: black;
+    padding: 3px 7px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.delete-btn:hover {
+    background-color: darkred;
+}
+
